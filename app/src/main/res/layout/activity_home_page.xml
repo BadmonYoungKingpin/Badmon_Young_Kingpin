@@ -11,15 +11,17 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:id="@+id/foodNumber"
-        android:background="@drawable/otherNo"
+        android:background="@drawable/ono"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toLeftOf="@+id/other"
+        android:layout_toStartOf="@+id/other"
+        android:layout_marginBottom="49dp" />
 
     <ImageView
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:id="@+id/workNumber"
-        android:background="@drawable/otherNo"
+        android:background="@drawable/ono"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="190dp"/>
 
@@ -27,16 +29,18 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:id="@+id/extraNo"
-        android:background="@drawable/otherNo"
+        android:background="@drawable/ono"
         android:layout_marginLeft="300dp"
         android:layout_marginTop="240dp"
-        android:padding="0dp"/>
+        android:padding="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:id="@+id/physicalNumber"
-        android:background="@drawable/otherNo"
+        android:background="@drawable/ono"
         android:layout_marginLeft="180dp"
         android:layout_marginTop="60dp"
         android:padding="0dp"/>
@@ -45,31 +49,33 @@
         android:layout_width="wrap_content"
         android:layout_height="350dp"
         android:id="@+id/work"
-        android:background="@drawable/workButtonHome"
+        android:background="@drawable/wbh"
         android:layout_above="@+id/food"
         android:layout_alignRight="@+id/food"
         android:layout_alignEnd="@+id/food"
         android:layout_toEndOf="@+id/outline"
         android:layout_below="@+id/physicalNumber"
         android:layout_alignLeft="@+id/food"
-        android:layout_alignStart="@+id/food" />
+        android:layout_alignStart="@+id/food"
+        android:onClick="workButtonClick" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="350dp"
         android:id="@+id/physical"
-        android:background="@drawable/physicalButtonHome"
+        android:background="@drawable/pbh"
         android:layout_toRightOf="@+id/food"
         android:layout_alignBottom="@+id/work"
         android:layout_alignTop="@+id/work"
         android:layout_alignRight="@+id/other"
-        android:layout_alignEnd="@+id/other" />
+        android:layout_alignEnd="@+id/other"
+        android:onClick="physButtonClick" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="350dp"
         android:id="@+id/other"
-        android:background="@drawable/otherButtonHome"
+        android:background="@drawable/obh"
         android:layout_alignLeft="@+id/physicalNumber"
         android:layout_alignStart="@+id/physicalNumber"
         android:layout_below="@+id/physical"
@@ -78,25 +84,26 @@
         android:layout_alignEnd="@+id/extraNo"
         android:layout_marginRight="51dp"
         android:layout_marginEnd="51dp"
-        android:layout_marginBottom="46dp" />
+        android:layout_marginBottom="46dp"
+        android:onClick="otherButtonClick" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="350dp"
         android:id="@+id/food"
-        android:background="@drawable/foodButtonHome"
+        android:background="@drawable/fbh"
         android:layout_alignTop="@+id/extraNo"
         android:layout_toLeftOf="@+id/other"
         android:layout_toEndOf="@+id/workNumber"
         android:layout_alignBottom="@+id/outline"
         android:layout_toRightOf="@+id/workNumber"
-        android:layout_marginBottom="44dp" />
+        android:layout_marginBottom="44dp"
+        android:onClick="foodButtonClick" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="350dp"
         android:id="@+id/outline"
-        android:background="@drawable/otherNo"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
@@ -107,7 +114,7 @@
         android:id="@+id/workButtonText"
         android:text="WORK"
         android:textSize="20dp"
-        android:onClick="buttonClick"
+        android:onClick="workButtonClick"
         android:layout_alignBottom="@+id/work"
         android:layout_alignRight="@+id/work"
         android:layout_alignEnd="@+id/work"
@@ -122,9 +129,12 @@
         android:text="PHYS"
         android:textSize="20dp"
         android:textStyle="normal"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
         android:layout_alignTop="@+id/workButtonText"
-        android:layout_toRightOf="@+id/foodNumber"
-        android:layout_toEndOf="@+id/foodNumber" />
+        android:layout_toRightOf="@+id/work"
+        android:layout_toEndOf="@+id/work"
+        android:onClick="physButtonClick" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -134,7 +144,8 @@
         android:textSize="20dp"
         android:layout_alignTop="@+id/editText2"
         android:layout_alignRight="@+id/workButtonText"
-        android:layout_alignEnd="@+id/workButtonText" />
+        android:layout_alignEnd="@+id/workButtonText"
+        android:onClick="foodButtonClick" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -145,7 +156,8 @@
         android:layout_marginTop="21dp"
         android:layout_below="@+id/workNumber"
         android:layout_alignLeft="@+id/physicalButtonText"
-        android:layout_alignStart="@+id/physicalButtonText" />
+        android:layout_alignStart="@+id/physicalButtonText"
+        android:onClick="otherButtonClick" />
 
 
 
