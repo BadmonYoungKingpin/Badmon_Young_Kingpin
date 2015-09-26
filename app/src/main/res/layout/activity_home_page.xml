@@ -111,7 +111,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/workButtonText"
+        android:id="@+id/worktext"
         android:text="WORK"
         android:textSize="20dp"
         android:onClick="workButtonClick"
@@ -120,44 +120,54 @@
         android:layout_alignEnd="@+id/work"
         android:layout_marginRight="14dp"
         android:layout_marginEnd="14dp"
-        android:layout_marginBottom="22dp" />
+        android:layout_marginBottom="22dp"
+        android:textStyle="normal|bold"
+        android:typeface="normal"
+        android:textColor="#ffffff"
+        android:singleLine="false"
+        android:selectAllOnFocus="false" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/physicalButtonText"
+        android:id="@+id/phystext"
         android:text="PHYS"
         android:textSize="20dp"
-        android:textStyle="normal"
+        android:textStyle="normal|bold"
         android:layout_marginLeft="17dp"
         android:layout_marginStart="17dp"
-        android:layout_alignTop="@+id/workButtonText"
+        android:layout_alignTop="@+id/worktext"
         android:layout_toRightOf="@+id/work"
         android:layout_toEndOf="@+id/work"
-        android:onClick="physButtonClick" />
+        android:onClick="physButtonClick"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/foodtext"
         android:text="FOOD"
         android:textSize="20dp"
-        android:layout_alignTop="@+id/editText2"
-        android:layout_alignRight="@+id/workButtonText"
-        android:layout_alignEnd="@+id/workButtonText"
-        android:onClick="foodButtonClick" />
+        android:layout_alignTop="@+id/misctext"
+        android:layout_alignRight="@+id/worktext"
+        android:layout_alignEnd="@+id/worktext"
+        android:onClick="foodButtonClick"
+        android:textStyle="normal|bold"
+        android:textColor="#ffffff" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/misctext"
         android:text="MISC"
         android:textSize="20dp"
         android:layout_marginTop="21dp"
         android:layout_below="@+id/workNumber"
-        android:layout_alignLeft="@+id/physicalButtonText"
-        android:layout_alignStart="@+id/physicalButtonText"
-        android:onClick="otherButtonClick" />
+        android:layout_alignLeft="@+id/phystext"
+        android:layout_alignStart="@+id/phystext"
+        android:onClick="otherButtonClick"
+        android:textColor="#ffffff"
+        android:textStyle="normal|bold" />
 
 
 

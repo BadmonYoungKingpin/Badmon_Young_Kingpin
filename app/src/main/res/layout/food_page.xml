@@ -19,7 +19,7 @@
         android:id="@+id/addWork"
         android:background="@drawable/ono"
         android:layout_gravity="center_horizontal"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/workMiddle"
         android:layout_centerHorizontal="true" />
 
     <EditText
