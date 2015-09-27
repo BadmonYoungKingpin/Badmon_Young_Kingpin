@@ -29,9 +29,9 @@
         android:layout_height="100dp"
         android:id="@+id/imageButton8"
         android:background="@drawable/add"
-        android:onClick="additemButtonClick"
         android:layout_marginTop="43dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="addeventButtonClick"/>
 
 </RelativeLayout>

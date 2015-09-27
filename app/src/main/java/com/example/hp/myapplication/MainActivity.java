@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.weather_home);
     }
 
+    public void addeventButtonClick(View v) {
+        setContentView(R.layout.event_new);
+    }
+
+
     public void workButtonClick(View v) {
         setContentView(R.layout.work_page);
     }
