@@ -18,18 +18,22 @@ public class MainActivity extends AppCompatActivity {
 
     public void workButtonClick(View v) {
         ((TextView)findViewById(R.id.worktext)).setText("changed");
+        setContentView(R.layout.work_page);
     }
 
     public void physButtonClick(View v) {
         ((TextView)findViewById(R.id.phystext)).setText("changed");
+        setContentView(R.layout.physical_page);
     }
 
     public void foodButtonClick(View v) {
         ((TextView)findViewById(R.id.foodtext)).setText("changed");
+        setContentView(R.layout.food_page);
     }
 
     public void otherButtonClick(View v){
         ((TextView)findViewById(R.id.misctext)).setText("changed");
+        setContentView(R.layout.other_page);
     }
 
     @Override
