@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,23 +17,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void workButtonClick(View v) {
-        Button button = (Button) v;
-        ((Button) v).setText("Boom");
+        ((TextView)findViewById(R.id.worktext)).setText("changed");
     }
 
     public void physButtonClick(View v) {
-        Button button = (Button) v;
-        ((Button) v).setText("Boom");
+        ((TextView)findViewById(R.id.phystext)).setText("changed");
     }
 
     public void foodButtonClick(View v) {
-        Button button = (Button) v;
-        ((Button) v).setText("Boom");
+        ((TextView)findViewById(R.id.foodtext)).setText("changed");
     }
 
     public void otherButtonClick(View v){
-        Button button = (Button)v;
-        ((Button)v).setText("Boom");
+        ((TextView)findViewById(R.id.misctext)).setText("changed");
     }
 
     @Override
