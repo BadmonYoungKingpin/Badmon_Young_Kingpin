@@ -16,36 +16,39 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.homepage);
     }
 
-    public void eventsButtonClick(View v) {
-        ((TextView)findViewById(R.id.worktext)).setText("changed");
+    public void backHomeButtonClick(View v) {
+        setContentView(R.layout.homepage);
+    }
+    public void backEventButtonClick(View v) {
+        setContentView(R.layout.event_home);
+    }
+    public void backCalendarButtonClick(View v) {
+        setContentView(R.layout.weather_home);
+    }
+    public void backToDoButtonClick(View v) {
         setContentView(R.layout.activity_home_page);
+    }
+
+    public void eventsButtonClick(View v) {
+        setContentView(R.layout.event_home);
     }
     public void todoButtonClick(View v) {
-        ((TextView)findViewById(R.id.worktext)).setText("changed");
         setContentView(R.layout.activity_home_page);
     }
-    public void weatherkButtonClick(View v) {
-        ((TextView)findViewById(R.id.worktext)).setText("changed");
-        setContentView(R.layout.activity_home_page);
+    public void weatherButtonClick(View v) {
+        setContentView(R.layout.weather_home);
     }
 
     public void workButtonClick(View v) {
-        ((TextView)findViewById(R.id.worktext)).setText("changed");
         setContentView(R.layout.work_page);
     }
-
     public void physButtonClick(View v) {
-        ((TextView)findViewById(R.id.phystext)).setText("changed");
         setContentView(R.layout.physical_page);
     }
-
     public void foodButtonClick(View v) {
-        ((TextView)findViewById(R.id.foodtext)).setText("changed");
         setContentView(R.layout.food_page);
     }
-
     public void otherButtonClick(View v){
-        ((TextView)findViewById(R.id.misctext)).setText("changed");
         setContentView(R.layout.other_page);
     }
 

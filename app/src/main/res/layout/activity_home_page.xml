@@ -169,7 +169,20 @@
         android:textColor="#ffffff"
         android:textStyle="normal|bold" />
 
-
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton4"
+        android:onClick="backButtonClick"
+        android:background="@drawable/back"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/phystext"
+        android:layout_toEndOf="@+id/phystext"
+        android:layout_marginLeft="42dp"
+        android:layout_marginStart="42dp"
+        android:layout_above="@+id/outline" />
 
 
 </RelativeLayout>

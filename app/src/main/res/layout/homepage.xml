@@ -43,7 +43,7 @@
         android:layout_marginBottom="76dp"
         android:layout_below="@+id/imageButton2"
         android:background="@drawable/standard"
-        android:onClick="weatherkButtonClick" />
+        android:onClick="weatherButtonClick" />
 
     <TextView
         android:layout_width="wrap_content"
