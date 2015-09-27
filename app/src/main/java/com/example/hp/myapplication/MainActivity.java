@@ -13,6 +13,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.homepage);
+    }
+
+    public void eventsButtonClick(View v) {
+        ((TextView)findViewById(R.id.worktext)).setText("changed");
+        setContentView(R.layout.activity_home_page);
+    }
+    public void todoButtonClick(View v) {
+        ((TextView)findViewById(R.id.worktext)).setText("changed");
+        setContentView(R.layout.activity_home_page);
+    }
+    public void weatherkButtonClick(View v) {
+        ((TextView)findViewById(R.id.worktext)).setText("changed");
         setContentView(R.layout.activity_home_page);
     }
 
