@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageButton10"
             android:background="@drawable/save"
-            android:onClick="additemButtonClick"
+            android:onClick="saveeventButtonClick"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/imageButton11"
             android:layout_toStartOf="@+id/imageButton11"

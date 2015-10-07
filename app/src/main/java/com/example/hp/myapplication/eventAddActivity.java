@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 public class eventAddActivity extends AppCompatActivity {
 
+    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,19 +22,19 @@ public class eventAddActivity extends AppCompatActivity {
     }
 
     public void saveeventButtonClick(View v) {
-        /*final EditText editTitle =  (EditText) findViewById(R.id.titletext);
+        final EditText editTitle =  (EditText) findViewById(R.id.titletext);
         final EditText editDate =  (EditText) findViewById(R.id.datetext);
         final EditText editDescr =  (EditText) findViewById(R.id.descriptext);
 
         String title = editTitle.getText().toString();
         String date = editDate.getText().toString();
         String descr = editDescr.getText().toString();
-        setContentView(R.layout.event_home);
 
-        count++;
-        list1[count] = title;
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, list1);
-        getListView().setAdapter(adapter);*/
+        Intent intent = new Intent(this, eventListPopActivity.class);
+
+        //Upload new data to server
+        //Start the new activity
+        startActivity(intent);
     }
 
     @Override

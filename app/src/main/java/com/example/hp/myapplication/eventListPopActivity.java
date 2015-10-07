@@ -26,6 +26,10 @@ public class eventListPopActivity extends ListActivity {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         ListView listV = new ListView(this);
+
+        //access EVENTDATA from server
+        //list1 needs to be populated with EVENTDATA
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, list1);
         getListView().setAdapter(adapter);
     }
