@@ -6,11 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class eventListPopActivity extends ListActivity {
+
+    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+    String[] list1 = {"asdasdasd","addddaadad","hhfghfsdsa"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,20 +25,24 @@ public class eventListPopActivity extends ListActivity {
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
-        /*
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(message);*/
-
         ListView listV = new ListView(this);
-
-
-        // Set the text view as the activity layout
-        //setContentView(textView);
-
-        String[] list1 = {"asdasdasd","addddaadad","hhfghfsdsa"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, list1);
         getListView().setAdapter(adapter);
+    }
+
+    /********************************  For the EVENTSList ****************************************
+     *
+     * @description xczc
+     *
+     *********************************************************************************************/
+    public void addeventButtonClick(View v) {
+        //setContentView(R.layout.event_new);
+        Intent intent2 = new Intent(this, eventAddActivity.class);
+        //Send data along to retrieve and use with new activity
+        //Data to be sent is events stored on the server
+        //Retrieve data, put into list1
+        //Start the new activity
+        startActivity(intent2);
     }
 
     @Override

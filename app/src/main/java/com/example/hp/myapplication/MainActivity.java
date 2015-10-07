@@ -51,10 +51,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.event_home);
         Intent intent = new Intent(this, eventListPopActivity.class);
 
-        /*ListView editText = (ListView) findViewById(android.R.id.list);
-        String[] list1 = {"asdasdasd","addddaadad","hhfghfsdsa"};*/
-
         //Send data along to retrieve and use with new activity
+        //Data to be sent is events stored on the server
+        //Retrieve data, put into list1
         String list1 = "asdasdasd";
         intent.putExtra(EXTRA_MESSAGE, list1);
         //Start the new activity
@@ -65,19 +64,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void weatherButtonClick(View v) {
         setContentView(R.layout.weather_home);
-    }
-
-    /********************************  For the EVENTSList ****************************************
-     *
-     * @description xczc
-     *
-     *********************************************************************************************/
-    public void addeventButtonClick(View v) {
-        setContentView(R.layout.event_new);
-    }
-
-    public void saveeventButtonClick(View v) {
-
     }
 
     /********************************  For the WEATHERDisplay *************************************
