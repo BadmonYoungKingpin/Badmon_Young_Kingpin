@@ -2,35 +2,42 @@ package com.example.hp.myapplication;
 
 import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
-public class eventListPopActivity extends ListActivity {
+import java.util.ArrayList;
+
+public class eventHomeActivity extends ListActivity {
 
     public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
-    String[] list1 = {"asdasdasd","addddaadad","hhfghfsdsa"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.event_home);
+        setContentView(R.layout.activity_event_home);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        Bundle extras = getIntent().getExtras();
+
+        String[] temp = new String[20];
+        temp = extras.getStringArray("events");
+
+        String[] message = new String[20];
+        for(int i=0;i<20;i++){message[i] = "Empty";}
+        if(temp != null){
+            for(int i=0;i<20;i++)
+                message[i] = temp[i];
+        }
 
         ListView listV = new ListView(this);
 
-        //access EVENTDATA from server
+        //access EVENTDATA from intent
         //list1 needs to be populated with EVENTDATA
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, list1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, message);
         getListView().setAdapter(adapter);
     }
 
@@ -40,7 +47,7 @@ public class eventListPopActivity extends ListActivity {
      *
      *********************************************************************************************/
     public void addeventButtonClick(View v) {
-        //setContentView(R.layout.event_new);
+        //setContentView(R.layout.activity_event_add);
         Intent intent2 = new Intent(this, eventAddActivity.class);
         //Send data along to retrieve and use with new activity
         //Data to be sent is events stored on the server
