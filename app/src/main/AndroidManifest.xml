@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".eventListPopActivity"
+            android:name=".eventHomeActivity"
             android:label="@string/title_activity_event_list_pop"
             android:parentActivityName=".MainActivity" >
             <meta-data
@@ -27,10 +27,21 @@
         <activity
             android:name=".eventAddActivity"
             android:label="@string/title_activity_event_add"
-            android:parentActivityName=".eventListPopActivity" >
+            android:parentActivityName=".eventHomeActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="eventListPopActivity" />
+                android:value=".eventHomeActivity" />
+        </activity>
+
+        <uses-permission android:name="android.permission.INTERNET" />
+
+        <activity
+            android:name=".todoHomeActivity"
+            android:label="@string/title_activity_todo_home"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.MainActivity" />
         </activity>
     </application>
 

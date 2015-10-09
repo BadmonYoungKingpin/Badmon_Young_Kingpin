@@ -1,12 +1,16 @@
 package com.example.hp.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public class eventAddActivity extends AppCompatActivity {
 
@@ -15,10 +19,10 @@ public class eventAddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.event_new);
+        setContentView(R.layout.activity_event_add);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(eventListPopActivity.EXTRA_MESSAGE);
+        String message = intent.getStringExtra(eventHomeActivity.EXTRA_MESSAGE);
     }
 
     public void saveeventButtonClick(View v) {
@@ -30,10 +34,26 @@ public class eventAddActivity extends AppCompatActivity {
         String date = editDate.getText().toString();
         String descr = editDescr.getText().toString();
 
-        Intent intent = new Intent(this, eventListPopActivity.class);
+        Intent intent = new Intent(this, eventHomeActivity.class);
 
         //Upload new data to server
         //Start the new activity
+        startActivity(intent);
+    }
+
+    private void writeToFile(String data) {
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("events.txt", Context.MODE_PRIVATE));
+            outputStreamWriter.write(data);
+            outputStreamWriter.close();
+        }
+        catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
+    }
+
+    public void backEventButtonClick(View v) {
+        Intent intent = new Intent(this, eventHomeActivity.class);
         startActivity(intent);
     }
 

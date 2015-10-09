@@ -1,27 +1,69 @@
 package com.example.hp.myapplication;
 
-import android.app.ListActivity;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+    public static String[] EXTRA_MESSAGE_EVENT = new String[20];
+    public static String EXTRA_MESSAGE_TODO = "com.mycompany.myfirstapp.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
+
+        for(int i=0;i<20;i++){
+            EXTRA_MESSAGE_EVENT[i] = "";
+        }
+        readFromFile();
+    }
+
+    private void readFromFile() {
+        try {
+            //File file = new File("eventsMain.txt");
+            /*File f = new File(filePathString);
+            if(f.exists() && !f.isDirectory()) {
+                // do something
+            }*/
+
+
+            AssetManager assManager = getApplicationContext().getAssets();
+            InputStream inputStream = assManager.open("events.txt");
+
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                int count = 0;
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    Log.e("login activity", "Line: " + count + "| Value: " + receiveString);
+                    EXTRA_MESSAGE_EVENT[count] = receiveString;
+                    count++;
+                }
+
+                inputStream.close();
+            }
+        }
+        catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+        }
     }
 
     /********************************  For the BACKButtons ****************************************
@@ -32,14 +74,10 @@ public class MainActivity extends AppCompatActivity {
     public void backHomeButtonClick(View v) {
         setContentView(R.layout.homepage);
     }
-    public void backEventButtonClick(View v) {
-        setContentView(R.layout.event_home);
-    }
-    public void backCalendarButtonClick(View v) {
-        setContentView(R.layout.weather_home);
-    }
+
+    public void backCalendarButtonClick(View v) { }
     public void backToDoButtonClick(View v) {
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_todo_home);
     }
 
     /********************************  For the Main Menu ****************************************
@@ -48,22 +86,34 @@ public class MainActivity extends AppCompatActivity {
      *
      *********************************************************************************************/
     public void eventsButtonClick(View v) {
-        setContentView(R.layout.event_home);
-        Intent intent = new Intent(this, eventListPopActivity.class);
+        setContentView(R.layout.activity_event_home);
+        Intent intent = new Intent(this, eventHomeActivity.class);
+
+        //Send data along to retrieve and use with new activity
+        //Data to be sent is events stored on the server
+        //Retrieve data, put into list1
+
+        //String[] list1 = {"1","2","3"};
+        intent.putExtra("events", EXTRA_MESSAGE_EVENT);
+        //Start the new activity
+        startActivity(intent);
+    }
+    public void todoButtonClick(View v) {
+        setContentView(R.layout.activity_todo_home);
+        Intent intent = new Intent(this, todoHomeActivity.class);
 
         //Send data along to retrieve and use with new activity
         //Data to be sent is events stored on the server
         //Retrieve data, put into list1
         String list1 = "asdasdasd";
-        intent.putExtra(EXTRA_MESSAGE, list1);
+        intent.putExtra(EXTRA_MESSAGE_TODO, list1);
         //Start the new activity
         startActivity(intent);
     }
-    public void todoButtonClick(View v) {
-        setContentView(R.layout.activity_home_page);
-    }
     public void weatherButtonClick(View v) {
-        setContentView(R.layout.weather_home);
+
+
+        
     }
 
     /********************************  For the WEATHERDisplay *************************************
@@ -71,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
      * @description
      *
      *********************************************************************************************/
+
 
     /********************************  For the TODOList *******************************************
      *
