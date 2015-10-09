@@ -1,5 +1,6 @@
 package com.example.hp.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,9 @@ import android.view.View;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,27 +29,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
-
-        for(int i=0;i<20;i++){
-            EXTRA_MESSAGE_EVENT[i] = "";
-        }
         readFromFile();
     }
 
     private void readFromFile() {
         try {
-            //File file = new File("eventsMain.txt");
-            /*File f = new File(filePathString);
-            if(f.exists() && !f.isDirectory()) {
-                // do something
-            }*/
+            //AssetManager assManager = getApplicationContext().getAssets();
+            //InputStream inputStream = assManager.open("events.txt");
+            FileInputStream fis = openFileInput("eventsNew");
+            for(int i=0;i<20;i++){
+                EXTRA_MESSAGE_EVENT[i] = "";
+            }
 
-
-            AssetManager assManager = getApplicationContext().getAssets();
-            InputStream inputStream = assManager.open("events.txt");
-
-            if ( inputStream != null ) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+            if ( fis != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(fis);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 String receiveString = "";
                 int count = 0;
@@ -56,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     count++;
                 }
 
-                inputStream.close();
+                fis.close();
             }
         }
         catch (FileNotFoundException e) {
@@ -93,9 +89,7 @@ public class MainActivity extends AppCompatActivity {
         //Data to be sent is events stored on the server
         //Retrieve data, put into list1
 
-        //String[] list1 = {"1","2","3"};
         intent.putExtra("events", EXTRA_MESSAGE_EVENT);
-        //Start the new activity
         startActivity(intent);
     }
     public void todoButtonClick(View v) {

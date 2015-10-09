@@ -2,6 +2,7 @@ package com.example.hp.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,12 +10,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
 public class eventAddActivity extends AppCompatActivity {
 
-    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+    public static String[] EXTRA_MESSAGE_EVENT = new String[20];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +42,50 @@ public class eventAddActivity extends AppCompatActivity {
         String date = editDate.getText().toString();
         String descr = editDescr.getText().toString();
 
-        Intent intent = new Intent(this, eventHomeActivity.class);
-
         //Upload new data to server
         //Start the new activity
+        writeToFile(title + '\n');
+
+        Intent intent = new Intent(this, eventHomeActivity.class);
+        readFromFile();
+        intent.putExtra("events", EXTRA_MESSAGE_EVENT);
         startActivity(intent);
+    }
+
+    private void readFromFile() {
+        try {
+            //AssetManager assManager = getApplicationContext().getAssets();
+            //InputStream inputStream = assManager.open("events.txt");
+            FileInputStream fis = openFileInput("eventsNew");
+            for(int i=0;i<20;i++) {
+                EXTRA_MESSAGE_EVENT[i] = "";
+            }
+
+            if ( fis != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(fis);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                int count = 0;
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    Log.e("login activity", "Line: " + count + "| Value: " + receiveString);
+                    EXTRA_MESSAGE_EVENT[count] = receiveString;
+                    count++;
+                }
+
+                fis.close();
+            }
+        }
+        catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+        }
     }
 
     private void writeToFile(String data) {
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput("events.txt", Context.MODE_PRIVATE));
+            FileOutputStream fos = openFileOutput("eventsNew", Context.MODE_APPEND);
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         }

@@ -21,7 +21,16 @@ public class eventHomeActivity extends ListActivity {
 
         Intent intent = getIntent();
         Bundle extras = getIntent().getExtras();
-        String[] message = extras.getStringArray("events");
+
+        String[] temp = new String[20];
+        temp = extras.getStringArray("events");
+
+        String[] message = new String[20];
+        for(int i=0;i<20;i++){message[i] = "Empty";}
+        if(temp != null){
+            for(int i=0;i<20;i++)
+                message[i] = temp[i];
+        }
 
         ListView listV = new ListView(this);
 
