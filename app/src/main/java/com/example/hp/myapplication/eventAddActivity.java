@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< Updated upstream
 import android.util.Log;
+=======
+>>>>>>> Stashed changes
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -42,6 +45,11 @@ public class eventAddActivity extends AppCompatActivity {
         String date = editDate.getText().toString();
         String descr = editDescr.getText().toString();
 
+<<<<<<< Updated upstream
+=======
+        Intent intent = new Intent(this, eventHomeActivity.class);
+
+>>>>>>> Stashed changes
         //Upload new data to server
         //Start the new activity
         writeToFile(title + '\n');
@@ -92,6 +100,11 @@ public class eventAddActivity extends AppCompatActivity {
         catch (IOException e) {
             Log.e("Exception", "File write failed: " + e.toString());
         }
+    }
+
+    public void backEventButtonClick(View v) {
+        Intent intent = new Intent(this, eventHomeActivity.class);
+        startActivity(intent);
     }
 
     public void backEventButtonClick(View v) {

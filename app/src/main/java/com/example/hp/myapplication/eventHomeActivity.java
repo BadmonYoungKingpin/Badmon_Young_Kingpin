@@ -21,6 +21,7 @@ public class eventHomeActivity extends ListActivity {
 
         Intent intent = getIntent();
         Bundle extras = getIntent().getExtras();
+<<<<<<< Updated upstream:app/src/main/java/com/example/hp/myapplication/eventHomeActivity.java
 
         String[] temp = new String[20];
         temp = extras.getStringArray("events");
@@ -31,6 +32,9 @@ public class eventHomeActivity extends ListActivity {
             for(int i=0;i<20;i++)
                 message[i] = temp[i];
         }
+=======
+        String[] message = extras.getStringArray("events");
+>>>>>>> Stashed changes:app/src/main/java/com/example/hp/myapplication/eventHomeActivity.java
 
         ListView listV = new ListView(this);
 

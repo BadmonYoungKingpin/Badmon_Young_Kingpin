@@ -1,6 +1,9 @@
 package com.example.hp.myapplication;
 
+<<<<<<< Updated upstream
 import android.content.Context;
+=======
+>>>>>>> Stashed changes
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+<<<<<<< Updated upstream
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,12 +22,19 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+=======
+>>>>>>> Stashed changes
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+<<<<<<< Updated upstream
     public static String[] EXTRA_MESSAGE_EVENT = new String[20];
     public static String EXTRA_MESSAGE_TODO = "com.mycompany.myfirstapp.MESSAGE";
+=======
+    public static String[] EXTRA_MESSAGE_EVENT;
+    public String EXTRA_MESSAGE_TODO = "com.mycompany.myfirstapp.MESSAGE";
+>>>>>>> Stashed changes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +99,14 @@ public class MainActivity extends AppCompatActivity {
         //Send data along to retrieve and use with new activity
         //Data to be sent is events stored on the server
         //Retrieve data, put into list1
+<<<<<<< Updated upstream
 
         intent.putExtra("events", EXTRA_MESSAGE_EVENT);
+=======
+        String[] list1 = {"1","2","3"};
+        intent.putExtra("events", list1);
+        //Start the new activity
+>>>>>>> Stashed changes
         startActivity(intent);
     }
     public void todoButtonClick(View v) {
