@@ -1,55 +1,52 @@
 package com.example.hp.myapplication;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 
-public class eventAddActivity extends AppCompatActivity {
+public class ViewEvent extends AppCompatActivity {
 
     public static String[] EXTRA_MESSAGE_EVENT = new String[20];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_add);
-        getIntent();
+        setContentView(R.layout.activity_view_event);
+
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+
+        String[] temp = extras.getStringArray("eventView");
+
+        String[] events = new String[3];
+        for(int i=0;i<3;i++){events[i] = "Empty";}
+        if(temp != null){
+            for(int i=0;i<3;i++)
+                events[i] = temp[i];
+        }
+
+        TextView t = (TextView) findViewById(R.id.eventTitle); t.setText(events[0]);
+        TextView da = (TextView) findViewById(R.id.eventDate); da.setText(events[1]);
+        TextView de = (TextView) findViewById(R.id.eventDesc); de.setText(events[2]);
+
     }
 
-    public void saveeventButtonClick(View v) {
-        final EditText editTitle =  (EditText) findViewById(R.id.titletext);
-        final EditText editDate =  (EditText) findViewById(R.id.datetext);
-        final EditText editDescr =  (EditText) findViewById(R.id.descriptext);
-
-        String title = editTitle.getText().toString();
-        String date = editDate.getText().toString();
-        String descr = editDescr.getText().toString();
-
-        //Upload new data to server
-        writeToFile(title + '\n');
-        newEventFile(title, date, descr);
-
+    public void backToEvents(View v) {
         Intent intent = new Intent(this, eventHomeActivity.class);
         readFromFile();
         intent.putExtra("events", EXTRA_MESSAGE_EVENT);
         startActivity(intent);
-    }
-
-    private void newEventFile(String t,String dat,String des){
-        String data = dat + "\n" + des;
-        writeToFile(data,t);
     }
 
     private void readFromFile() {
@@ -75,35 +72,6 @@ public class eventAddActivity extends AppCompatActivity {
         } catch (IOException e) {
             Log.e("login activity", "Can not read file: " + e.toString());
         }
-    }
-
-    private void writeToFile(String data, String fileName) {
-        try {
-            FileOutputStream fos = openFileOutput(fileName, Context.MODE_APPEND);
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
-            outputStreamWriter.write(data);
-            outputStreamWriter.close();
-        }
-        catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
-        }
-    }
-
-    private void writeToFile(String data) {
-        try {
-            FileOutputStream fos = openFileOutput("eventNames", Context.MODE_APPEND);
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
-            outputStreamWriter.write(data);
-            outputStreamWriter.close();
-        }
-        catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
-        }
-    }
-
-    public void backEventButtonClick(View v) {
-        Intent intent = new Intent(this, eventHomeActivity.class);
-        startActivity(intent);
     }
 
     @Override

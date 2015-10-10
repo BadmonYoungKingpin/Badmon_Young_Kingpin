@@ -10,4 +10,5 @@
     <string name="weather_pressure">Pressure:</string>
     <string name="weather_humidity">Humidity:</string>
     <string name="title_activity_todo_home">todoHomeActivity</string>
+    <string name="title_activity_view_event">ViewEvent</string>
 </resources>

@@ -34,12 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void readFromFile() {
         try {
-            //AssetManager assManager = getApplicationContext().getAssets();
-            //InputStream inputStream = assManager.open("events.txt");
-            FileInputStream fis = openFileInput("eventsNew");
-            for(int i=0;i<20;i++){
-                EXTRA_MESSAGE_EVENT[i] = "";
-            }
+            for(int i=0;i<20;i++){EXTRA_MESSAGE_EVENT[i] = "";}
+            FileInputStream fis = openFileInput("eventNames");
 
             if ( fis != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(fis);
@@ -47,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 String receiveString = "";
                 int count = 0;
                 while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    Log.e("login activity", "Line: " + count + "| Value: " + receiveString);
+                    //Log.e("login activity", "Line: " + count + "| Value: " + receiveString);
                     EXTRA_MESSAGE_EVENT[count] = receiveString;
                     count++;
                 }
@@ -62,20 +58,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /********************************  For the BACKButtons ****************************************
-     *
-     * @description
-     *
-     *********************************************************************************************/
-    public void backHomeButtonClick(View v) {
-        setContentView(R.layout.homepage);
-    }
-
-    public void backCalendarButtonClick(View v) { }
-    public void backToDoButtonClick(View v) {
-        setContentView(R.layout.activity_todo_home);
-    }
-
     /********************************  For the Main Menu ****************************************
      *
      * @description
@@ -84,10 +66,6 @@ public class MainActivity extends AppCompatActivity {
     public void eventsButtonClick(View v) {
         setContentView(R.layout.activity_event_home);
         Intent intent = new Intent(this, eventHomeActivity.class);
-
-        //Send data along to retrieve and use with new activity
-        //Data to be sent is events stored on the server
-        //Retrieve data, put into list1
 
         intent.putExtra("events", EXTRA_MESSAGE_EVENT);
         startActivity(intent);

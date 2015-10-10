@@ -43,6 +43,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hp.myapplication.MainActivity" />
         </activity>
+        <activity
+            android:name=".ViewEvent"
+            android:label="@string/title_activity_view_event"
+            android:parentActivityName=".eventHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.eventHomeActivity" />
+        </activity>
     </application>
 
 </manifest>
