@@ -46,11 +46,10 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton6"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/workMiddle"
-        android:layout_alignStart="@+id/workMiddle"
-        android:background="@drawable/back"
-        android:onClick="backButtonClick"/>
+        android:id="@+id/imageButton14"
+        android:background="@drawable/bck"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
