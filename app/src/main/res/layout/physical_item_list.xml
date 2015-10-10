@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#51e037"
+    android:weightSum="1">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/WorkListBack"
+        android:background="@drawable/bck"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:id="@+id/workPriority1"
+        android:background="@drawable/ono"
+        android:padding="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/work_item1_title"
+        android:layout_toStartOf="@+id/work_item1_title"
+        android:layout_marginTop="83dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="TITLE_1"
+        android:id="@+id/work_item1_title"
+        android:layout_alignBottom="@+id/workPriority1"
+        android:layout_toRightOf="@+id/WorkListBack"
+        android:layout_toEndOf="@+id/WorkListBack" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="DESCRIPTION_1"
+        android:id="@+id/work_item1_desc"
+        android:layout_below="@+id/work_item1_title"
+        android:layout_toRightOf="@+id/workPriority1"
+        android:layout_toEndOf="@+id/workPriority1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="DATE_1"
+        android:id="@+id/work_item1_date"
+        android:layout_below="@+id/work_item1_desc"
+        android:layout_toRightOf="@+id/workPriority2"
+        android:layout_toEndOf="@+id/workPriority2" />
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:id="@+id/workPriority2"
+        android:background="@drawable/ono"
+        android:padding="0dp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/workPriority1"
+        android:layout_alignStart="@+id/workPriority1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="TITLE_2"
+        android:id="@+id/work_item2_title"
+        android:layout_alignBottom="@+id/workPriority2"
+        android:layout_alignLeft="@+id/work_item1_date"
+        android:layout_alignStart="@+id/work_item1_date" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="DESCRIPTION_2"
+        android:id="@+id/work_item2_desc"
+        android:layout_below="@+id/work_item2_title"
+        android:layout_alignLeft="@+id/work_item2_title"
+        android:layout_alignStart="@+id/work_item2_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="DATE_2"
+        android:id="@+id/work_item2_date"
+        android:layout_below="@+id/work_item2_desc"
+        android:layout_alignLeft="@+id/work_item2_desc"
+        android:layout_alignStart="@+id/work_item2_desc" />
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:id="@+id/workPriority3"
+        android:background="@drawable/ono"
+        android:padding="0dp"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/work_item2_date"
+        android:layout_alignLeft="@+id/workPriority2"
+        android:layout_alignStart="@+id/workPriority2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="TITLE_3"
+        android:id="@+id/work_item3_title"
+        android:layout_alignBottom="@+id/workPriority3"
+        android:layout_toRightOf="@+id/workPriority3"
+        android:layout_toEndOf="@+id/workPriority3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="DESCRIPTION_3"
+        android:id="@+id/work_item3_desc"
+        android:layout_below="@+id/work_item3_title"
+        android:layout_alignLeft="@+id/work_item3_title"
+        android:layout_alignStart="@+id/work_item3_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="DATE_3"
+        android:id="@+id/work_item3_date"
+        android:layout_below="@+id/work_item3_desc"
+        android:layout_alignLeft="@+id/work_item3_desc"
+        android:layout_alignStart="@+id/work_item3_desc" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/physical_item1_done"
+        android:background="@drawable/done"
+        android:layout_alignTop="@+id/work_item1_desc"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/work_item1_date" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/physical_item2_done"
+        android:background="@drawable/done"
+        android:layout_above="@+id/workPriority3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/workPriority2" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/physical_item3_done"
+        android:background="@drawable/done"
+        android:layout_alignBottom="@+id/work_item3_date"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/work_item3_title" />
+
+
+</RelativeLayout>
+
+
