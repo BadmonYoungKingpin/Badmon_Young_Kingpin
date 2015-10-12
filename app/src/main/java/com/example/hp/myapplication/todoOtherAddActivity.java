@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -19,22 +20,22 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class eventAddActivity extends AppCompatActivity {
+public class todoOtherAddActivity extends AppCompatActivity {
 
-    public static ArrayList<String> EXTRA_MESSAGE_EVENT2 = new ArrayList<String>();
+    public static ArrayList<String> EXTRA_MESSAGE_WORK = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_add);
+        setContentView(R.layout.activity_todo_other_add);
         getIntent();
         readFromFile();
     }
 
     private void readFromFile() {
         try {
-            EXTRA_MESSAGE_EVENT2 = new ArrayList<String>();
-            FileInputStream fis = openFileInput("test5");
+            EXTRA_MESSAGE_WORK = new ArrayList<String>();
+            FileInputStream fis = openFileInput("OtherTester");
 
             if ( fis != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(fis);
@@ -42,7 +43,7 @@ public class eventAddActivity extends AppCompatActivity {
                 String receiveString = "";
                 while ( (receiveString = bufferedReader.readLine()) != null) {
                     //Log.e("login activity","| Value: " + receiveString);
-                    EXTRA_MESSAGE_EVENT2.add("(" + bufferedReader.readLine() + ")" + receiveString);
+                    EXTRA_MESSAGE_WORK.add("(" + bufferedReader.readLine() + ")" + receiveString);
                 }
                 fis.close();
             }
@@ -54,10 +55,16 @@ public class eventAddActivity extends AppCompatActivity {
         }
     }
 
-    public void saveeventButtonClick(View v) {
-        final EditText editTitle =  (EditText) findViewById(R.id.titletext);
-        final EditText editDate =  (EditText) findViewById(R.id.datetext);
-        final EditText editDescr =  (EditText) findViewById(R.id.descriptext);
+    public void backToOther(View v) {
+        Intent intent = new Intent(this, todoOtherHomeActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void saveOtherButtonClick(View v) {
+        final EditText editTitle =  (EditText) findViewById(R.id.physical_title_content);
+        final EditText editDate =  (EditText) findViewById(R.id.physical_date_content);
+        final EditText editDescr =  (EditText) findViewById(R.id.physical_desc_content);
 
         String title = editTitle.getText().toString();
         String date = editDate.getText().toString();
@@ -65,15 +72,15 @@ public class eventAddActivity extends AppCompatActivity {
 
         //Upload new data to server
         writeToFile(title, date);
-        newEventFile(title, date, descr);
+        newWorkFile(title, date, descr);
 
-        Intent intent = new Intent(this, eventHomeActivity.class);
+        Intent intent = new Intent(this, todoOtherHomeActivity.class);
         startActivity(intent);
     }
 
     private void writeToFile(String data, String date) {
         try {
-            FileOutputStream fos = openFileOutput("test5", Context.MODE_APPEND);
+            FileOutputStream fos = openFileOutput("OtherTester", Context.MODE_APPEND);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
             outputStreamWriter.write(data + "\n" + date + "\n");
             outputStreamWriter.close();
@@ -83,7 +90,7 @@ public class eventAddActivity extends AppCompatActivity {
         }
     }
 
-    private void newEventFile(String t,String dat,String des){
+    private void newWorkFile(String t,String dat,String des){
         String data = t + "\n" + dat + "\n" + des;
         try {
             FileOutputStream fos = openFileOutput(t, Context.MODE_PRIVATE);
@@ -95,7 +102,7 @@ public class eventAddActivity extends AppCompatActivity {
             Log.e("Exception", "File write failed: " + e.toString());
         }
 
-        Collections.sort(EXTRA_MESSAGE_EVENT2);
+        Collections.sort(EXTRA_MESSAGE_WORK);
     }
 
     public void backEventButtonClick(View v) {
@@ -118,3 +125,4 @@ public class eventAddActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+

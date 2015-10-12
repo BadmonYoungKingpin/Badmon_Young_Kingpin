@@ -3,8 +3,8 @@ package com.example.hp.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class todoHomeActivity extends AppCompatActivity {
 
@@ -12,9 +12,33 @@ public class todoHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_home);
+    }
 
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE_TODO);
+    public void todoWorkButtonClick(View v) {
+        Intent intent = new Intent(this, todoWorkHomeActivity.class);
+
+        startActivity(intent);
+    }
+
+    public void todoPhysButtonClick(View v) {
+        Intent intent = new Intent(this, todoPhysHomeActivity.class);
+        setContentView(R.layout.activity_todo_phys_home);
+        startActivity(intent);
+    }
+    public void todoFoodButtonClick(View v) {
+        Intent intent = new Intent(this, todoFoodHomeActivity.class);
+        setContentView(R.layout.activity_todo_food_home);
+        startActivity(intent);
+    }
+    public void todoOtherButtonClick(View v) {
+        Intent intent = new Intent(this, todoOtherHomeActivity.class);
+        setContentView(R.layout.activity_todo_other_home);
+        startActivity(intent);
+    }
+
+    public void backButton(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override

@@ -1,8 +1,11 @@
 package com.example.hp.myapplication;
+
 import android.app.ListActivity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,20 +20,19 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class eventHomeActivity extends ListActivity {
+public class todoOtherHomeActivity extends ListActivity {
 
     private static String[] EVENT_DATA = new String[4];
-    public static ArrayList<String> EXTRA_MESSAGE_EVENT = new ArrayList<String>();
+    public static ArrayList<String> EXTRA_MESSAGE_TODO = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_home);
-
+        setContentView(R.layout.activity_todo_other_home);
         getIntent();
         readFromFile();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, EXTRA_MESSAGE_EVENT);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, EXTRA_MESSAGE_TODO);
         getListView().setAdapter(adapter);
 
         //On item click
@@ -39,12 +41,12 @@ public class eventHomeActivity extends ListActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Intent intent = new Intent(eventHomeActivity.this, ViewEvent.class);
+                Intent intent = new Intent(todoOtherHomeActivity.this, viewOtherTodo.class);
                 String val =(String) parent.getItemAtPosition(position);
 
                 if(val != "EMPTY") {
-                    readEventFile(val);
-                    intent.putExtra("eventView", EVENT_DATA);
+                    readTodoFile(val);
+                    intent.putExtra("todoView", EVENT_DATA);
                     startActivity(intent);
                 }
             }
@@ -58,8 +60,8 @@ public class eventHomeActivity extends ListActivity {
      *********************************************************************************************/
     private void readFromFile() {
         try {
-            EXTRA_MESSAGE_EVENT = new ArrayList<String>();
-            FileInputStream fis = openFileInput("test5");
+            EXTRA_MESSAGE_TODO = new ArrayList<String>();
+            FileInputStream fis = openFileInput("OtherTester");
 
             if ( fis != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(fis);
@@ -67,7 +69,7 @@ public class eventHomeActivity extends ListActivity {
                 String receiveString = "";
                 while ( (receiveString = bufferedReader.readLine()) != null) {
                     //Log.e("login activity","| Value: " + receiveString);
-                    EXTRA_MESSAGE_EVENT.add("(" + bufferedReader.readLine() + ") " + receiveString);
+                    EXTRA_MESSAGE_TODO.add("(" + bufferedReader.readLine() + ") " + receiveString);
                 }
                 fis.close();
             }
@@ -78,15 +80,19 @@ public class eventHomeActivity extends ListActivity {
             Log.e("login activity", "Can not read file: " + e.toString());
         }
 
-        Collections.sort(EXTRA_MESSAGE_EVENT);
+        Collections.sort(EXTRA_MESSAGE_TODO);
     }
 
-    public void addeventButtonClick(View v) {
-        Intent intent2 = new Intent(this, eventAddActivity.class);
+    public void addOtherButtonClick(View v) {
+        Intent intent2 = new Intent(this, todoOtherAddActivity.class);
+        startActivity(intent2);
+    }
+    public void back(View v){
+        Intent intent2 = new Intent(this, todoHomeActivity.class);
         startActivity(intent2);
     }
 
-    private void readEventFile(String title){
+    private void readTodoFile(String title){
         try {
             for(int i=0;i<4;i++) {EVENT_DATA[i] = "";}
 

@@ -57,7 +57,7 @@
         android:layout_below="@+id/physicalNumber"
         android:layout_alignLeft="@+id/food"
         android:layout_alignStart="@+id/food"
-        android:onClick="workButtonClick" />
+        android:onClick="todoWorkButtonClick" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
         android:layout_alignTop="@+id/work"
         android:layout_alignRight="@+id/other"
         android:layout_alignEnd="@+id/other"
-        android:onClick="physButtonClick" />
+        android:onClick="todoPhysButtonClick" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
         android:layout_marginRight="51dp"
         android:layout_marginEnd="51dp"
         android:layout_marginBottom="46dp"
-        android:onClick="otherButtonClick" />
+        android:onClick="todoOtherButtonClick" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -98,7 +98,7 @@
         android:layout_alignBottom="@+id/outline"
         android:layout_toRightOf="@+id/workNumber"
         android:layout_marginBottom="44dp"
-        android:onClick="foodButtonClick" />
+        android:onClick="todoFoodButtonClick" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -114,7 +114,6 @@
         android:id="@+id/worktext"
         android:text="WORK"
         android:textSize="20dp"
-        android:onClick="workButtonClick"
         android:layout_alignBottom="@+id/work"
         android:layout_alignRight="@+id/work"
         android:layout_alignEnd="@+id/work"
@@ -139,7 +138,6 @@
         android:layout_alignTop="@+id/worktext"
         android:layout_toRightOf="@+id/work"
         android:layout_toEndOf="@+id/work"
-        android:onClick="physButtonClick"
         android:textColor="#ffffff" />
 
     <EditText
@@ -151,7 +149,6 @@
         android:layout_alignTop="@+id/misctext"
         android:layout_alignRight="@+id/worktext"
         android:layout_alignEnd="@+id/worktext"
-        android:onClick="foodButtonClick"
         android:textStyle="normal|bold"
         android:textColor="#ffffff" />
 
@@ -165,7 +162,6 @@
         android:layout_below="@+id/workNumber"
         android:layout_alignLeft="@+id/phystext"
         android:layout_alignStart="@+id/phystext"
-        android:onClick="otherButtonClick"
         android:textColor="#ffffff"
         android:textStyle="normal|bold" />
 
@@ -173,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton4"
-        android:onClick="backButtonClick"
+        android:onClick="backButton"
         android:background="@drawable/back"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"

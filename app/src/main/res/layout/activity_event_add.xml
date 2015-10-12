@@ -18,7 +18,8 @@
         android:layout_alignLeft="@+id/textView5"
         android:layout_alignStart="@+id/textView5"
         android:layout_alignRight="@+id/datetext"
-        android:layout_alignEnd="@+id/datetext" />
+        android:layout_alignEnd="@+id/datetext"
+        android:textStyle="italic" />
 
     <EditText
         android:layout_width="161dp"
@@ -29,7 +30,8 @@
         android:layout_alignLeft="@+id/datetext"
         android:layout_alignStart="@+id/datetext"
         android:layout_alignRight="@+id/datetext"
-        android:layout_alignEnd="@+id/datetext" />
+        android:layout_alignEnd="@+id/datetext"
+        android:textStyle="italic" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,7 +41,9 @@
         android:id="@+id/datetext"
         android:layout_gravity="right|top"
         android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="yyyy/mm/dd"
+        android:textStyle="italic" />
 
     <TextView
         android:layout_width="wrap_content"

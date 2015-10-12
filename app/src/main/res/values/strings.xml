@@ -11,4 +11,16 @@
     <string name="weather_humidity">Humidity:</string>
     <string name="title_activity_todo_home">todoHomeActivity</string>
     <string name="title_activity_view_event">ViewEvent</string>
+    <string name="title_activity_work_home">workHomeActivity</string>
+    <string name="title_activity_todo_work_add">todoWorkAddActivity</string>
+    <string name="title_activity_view_work_todo">viewWorkTodo</string>
+    <string name="title_activity_todo_phys_home">todoPhysHomeActivity</string>
+    <string name="title_activity_view_phys_todo">viewPhysTodo</string>
+    <string name="title_activity_todo_phys_add">todoPhysAddActivity</string>
+    <string name="title_activity_todo_food_home">todoFoodHomeActivity</string>
+    <string name="title_activity_todo_food_add">todoFoodAddActivity</string>
+    <string name="title_activity_view_food_todo">viewFoodTodo</string>
+    <string name="title_activity_todo_other_activity_home">todoOtherActivityHome</string>
+    <string name="title_activity_todo_other_home">todoOtherHomeActivity</string>
+    <string name="title_activity_view_other_todo">viewOtherTodo</string>
 </resources>

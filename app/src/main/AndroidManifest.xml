@@ -51,6 +51,102 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hp.myapplication.eventHomeActivity" />
         </activity>
+        <activity
+            android:name=".todoWorkHomeActivity"
+            android:label="@string/title_activity_work_home"
+            android:parentActivityName=".todoHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoHomeActivity" />
+        </activity>
+        <activity
+            android:name=".todoWorkAddActivity"
+            android:label="@string/title_activity_todo_work_add"
+            android:parentActivityName=".todoWorkHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".todoWorkHomeActivity" />
+        </activity>
+        <activity
+            android:name=".viewWorkTodo"
+            android:label="@string/title_activity_view_work_todo"
+            android:parentActivityName=".todoWorkHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoWorkHomeActivity" />
+        </activity>
+        <activity
+            android:name=".todoPhysHomeActivity"
+            android:label="@string/title_activity_todo_phys_home"
+            android:parentActivityName=".todoHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoHomeActivity" />
+        </activity>
+        <activity
+            android:name=".viewPhysTodo"
+            android:label="@string/title_activity_view_phys_todo"
+            android:parentActivityName=".todoPhysHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoPhysHomeActivity" />
+        </activity>
+        <activity
+            android:name=".todoPhysAddActivity"
+            android:label="@string/title_activity_todo_phys_add"
+            android:parentActivityName=".todoPhysHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoPhysHomeActivity" />
+        </activity>
+        <activity
+            android:name=".todoFoodHomeActivity"
+            android:label="@string/title_activity_todo_food_home"
+            android:parentActivityName=".todoHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoHomeActivity" />
+        </activity>
+        <activity
+            android:name=".todoFoodAddActivity"
+            android:label="@string/title_activity_todo_food_add"
+            android:parentActivityName=".todoFoodHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoFoodHomeActivity" />
+        </activity>
+        <activity
+            android:name=".viewFoodTodo"
+            android:label="@string/title_activity_view_food_todo"
+            android:parentActivityName=".todoFoodHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoFoodHomeActivity" />
+        </activity>
+        <activity
+            android:name=".todoOtherAddActivity"
+            android:label="@string/title_activity_todo_other_activity_home"
+            android:parentActivityName=".todoHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoHomeActivity" />
+        </activity>
+        <activity
+            android:name=".todoOtherHomeActivity"
+            android:label="@string/title_activity_todo_other_home"
+            android:parentActivityName=".todoHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoHomeActivity" />
+        </activity>
+        <activity
+            android:name=".viewOtherTodo"
+            android:label="@string/title_activity_view_other_todo"
+            android:parentActivityName=".todoOtherHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoOtherHomeActivity" />
+        </activity>
     </application>
 
 </manifest>

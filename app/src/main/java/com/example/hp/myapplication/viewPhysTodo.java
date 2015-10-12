@@ -20,7 +20,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ViewEvent extends AppCompatActivity {
+public class viewPhysTodo extends AppCompatActivity {
 
     public static ArrayList<String> EXTRA_MESSAGE_EVENT = new ArrayList<String>();
     public static String title;
@@ -29,12 +29,12 @@ public class ViewEvent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_event);
+        setContentView(R.layout.activity_view_phys_todo);
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
 
-        String[] temp = extras.getStringArray("eventView");
+        String[] temp = extras.getStringArray("todoView");
 
         String[] events = new String[4];
         for(int i=0;i<4;i++){events[i] = "Empty";}
@@ -51,11 +51,11 @@ public class ViewEvent extends AppCompatActivity {
     }
 
     public void backToEvents(View v) {
-        Intent intent = new Intent(this, eventHomeActivity.class);
+        Intent intent = new Intent(this, todoPhysHomeActivity.class);
         startActivity(intent);
     }
 
-    public void deleteEvent(View v) {
+    public void deletePhysTodo(View v) {
         int index = 0;
         readFromFile();
 
@@ -76,11 +76,11 @@ public class ViewEvent extends AppCompatActivity {
 
         //Overwriting the file
         try {
-            FileOutputStream fos = openFileOutput("test5", Context.MODE_PRIVATE);
+            FileOutputStream fos = openFileOutput("PhysTester", Context.MODE_PRIVATE);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
             for(int i=0;i<EXTRA_MESSAGE_EVENT.size();i++){
                 dateTemp = EXTRA_MESSAGE_EVENT.get(i).substring(1,10);
-                titleTemp = EXTRA_MESSAGE_EVENT.get(i).substring(12);
+                titleTemp = EXTRA_MESSAGE_EVENT.get(i).substring(13);
                 outputStreamWriter.write(titleTemp + "\n" + dateTemp + "\n");
             }
 
@@ -90,14 +90,14 @@ public class ViewEvent extends AppCompatActivity {
             Log.e("Exception", "File write failed: " + e.toString());
         }
 
-        Intent intent = new Intent(this, eventHomeActivity.class);
+        Intent intent = new Intent(this, todoPhysHomeActivity.class);
         startActivity(intent);
     }
 
     private void readFromFile() {
         try {
             EXTRA_MESSAGE_EVENT = new ArrayList<String>();
-            FileInputStream fis = openFileInput("test5");
+            FileInputStream fis = openFileInput("PhysTester");
 
             if ( fis != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(fis);
@@ -105,7 +105,7 @@ public class ViewEvent extends AppCompatActivity {
                 String receiveString = "";
                 while ( (receiveString = bufferedReader.readLine()) != null) {
                     //Log.e("login activity","| Value: " + receiveString);
-                    EXTRA_MESSAGE_EVENT.add("(" + bufferedReader.readLine() + ")" + receiveString);
+                    EXTRA_MESSAGE_EVENT.add("(" + bufferedReader.readLine() + ") " + receiveString);
                 }
                 fis.close();
             }
