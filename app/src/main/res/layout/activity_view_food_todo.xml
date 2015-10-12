@@ -13,6 +13,7 @@
         android:layout_height="300dp"
         android:id="@+id/linearLayout">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,6 +50,25 @@
             android:layout_gravity="center_horizontal"
             android:textStyle="italic"
             android:textAlignment="center" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:id="@+id/eventTime"
+            android:textSize="40dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priority"
+            android:id="@+id/eventPriority"
+            android:textSize="40dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 

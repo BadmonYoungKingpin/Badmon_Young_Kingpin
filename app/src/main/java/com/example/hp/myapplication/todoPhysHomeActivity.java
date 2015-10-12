@@ -61,7 +61,7 @@ public class todoPhysHomeActivity extends ListActivity {
     private void readFromFile() {
         try {
             EXTRA_MESSAGE_TODO = new ArrayList<String>();
-            FileInputStream fis = openFileInput("PhysTester");
+            FileInputStream fis = openFileInput("PhysTester1");
 
             if ( fis != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(fis);
@@ -95,7 +95,7 @@ public class todoPhysHomeActivity extends ListActivity {
 
     private void readTodoFile(String title){
         try {
-            for(int i=0;i<4;i++) {EVENT_DATA[i] = "";}
+            for(int i=0;i<5;i++) {EVENT_DATA[i] = "";}
 
             String newTitleString = title.substring(13);
             FileInputStream fis = openFileInput(newTitleString);

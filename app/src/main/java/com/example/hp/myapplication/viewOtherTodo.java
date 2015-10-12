@@ -43,10 +43,11 @@ public class viewOtherTodo extends AppCompatActivity {
                 events[i] = temp[i];
         }
         title = events[0];
-        dateE = events[1];
-        TextView t = (TextView) findViewById(R.id.eventTitle); t.setText(events[0]);
+        dateE = events[1];TextView t = (TextView) findViewById(R.id.eventTitle); t.setText(events[0]);
         TextView da = (TextView) findViewById(R.id.eventDate); da.setText(events[1]);
         TextView de = (TextView) findViewById(R.id.eventDesc); de.setText(events[2]);
+        TextView time = (TextView) findViewById(R.id.eventTime); de.setText(events[3]);
+        TextView priority = (TextView) findViewById(R.id.eventPriority); de.setText(events[4]);
 
     }
 
@@ -76,10 +77,10 @@ public class viewOtherTodo extends AppCompatActivity {
 
         //Overwriting the file
         try {
-            FileOutputStream fos = openFileOutput("OtherTester", Context.MODE_PRIVATE);
+            FileOutputStream fos = openFileOutput("OtherTester1", Context.MODE_PRIVATE);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
             for(int i=0;i<EXTRA_MESSAGE_EVENT.size();i++){
-                dateTemp = EXTRA_MESSAGE_EVENT.get(i).substring(1,10);
+                dateTemp = EXTRA_MESSAGE_EVENT.get(i).substring(1,11);
                 titleTemp = EXTRA_MESSAGE_EVENT.get(i).substring(13);
                 outputStreamWriter.write(titleTemp + "\n" + dateTemp + "\n");
             }
@@ -97,7 +98,7 @@ public class viewOtherTodo extends AppCompatActivity {
     private void readFromFile() {
         try {
             EXTRA_MESSAGE_EVENT = new ArrayList<String>();
-            FileInputStream fis = openFileInput("OtherTester");
+            FileInputStream fis = openFileInput("OtherTester1");
 
             if ( fis != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(fis);

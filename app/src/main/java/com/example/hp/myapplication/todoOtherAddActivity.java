@@ -35,7 +35,7 @@ public class todoOtherAddActivity extends AppCompatActivity {
     private void readFromFile() {
         try {
             EXTRA_MESSAGE_WORK = new ArrayList<String>();
-            FileInputStream fis = openFileInput("OtherTester");
+            FileInputStream fis = openFileInput("OtherTester1");
 
             if ( fis != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(fis);
@@ -65,14 +65,18 @@ public class todoOtherAddActivity extends AppCompatActivity {
         final EditText editTitle =  (EditText) findViewById(R.id.physical_title_content);
         final EditText editDate =  (EditText) findViewById(R.id.physical_date_content);
         final EditText editDescr =  (EditText) findViewById(R.id.physical_desc_content);
+        final EditText editTime =  (EditText) findViewById(R.id.physical_time_content);
+        final EditText editPriority =  (EditText) findViewById(R.id.work_priority_content);
 
         String title = editTitle.getText().toString();
         String date = editDate.getText().toString();
         String descr = editDescr.getText().toString();
+        String time = editTime.getText().toString();
+        String priority = editPriority.getText().toString();
 
         //Upload new data to server
         writeToFile(title, date);
-        newWorkFile(title, date, descr);
+        newWorkFile(title, date, descr,time,priority);
 
         Intent intent = new Intent(this, todoOtherHomeActivity.class);
         startActivity(intent);
@@ -80,7 +84,7 @@ public class todoOtherAddActivity extends AppCompatActivity {
 
     private void writeToFile(String data, String date) {
         try {
-            FileOutputStream fos = openFileOutput("OtherTester", Context.MODE_APPEND);
+            FileOutputStream fos = openFileOutput("OtherTester1", Context.MODE_APPEND);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);
             outputStreamWriter.write(data + "\n" + date + "\n");
             outputStreamWriter.close();
@@ -90,8 +94,8 @@ public class todoOtherAddActivity extends AppCompatActivity {
         }
     }
 
-    private void newWorkFile(String t,String dat,String des){
-        String data = t + "\n" + dat + "\n" + des;
+    private void newWorkFile(String t,String dat,String des,String time,String prior){
+        String data = t + "\n" + dat + "\n" + des + "\n" +time + "\n" + prior +"\n";
         try {
             FileOutputStream fos = openFileOutput(t, Context.MODE_PRIVATE);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fos);

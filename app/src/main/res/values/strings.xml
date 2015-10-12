@@ -23,4 +23,8 @@
     <string name="title_activity_todo_other_activity_home">todoOtherActivityHome</string>
     <string name="title_activity_todo_other_home">todoOtherHomeActivity</string>
     <string name="title_activity_view_other_todo">viewOtherTodo</string>
+    <string name="title_activity_weather_home">weatherHomeActivity</string>
+    <string name="title_activity_weather_forecast">WeatherForecastActivity</string>
+    <string name="title_activity_view_weather">viewWeatherActivity</string>
+    <string name="title_activity_yahoo_weather">yahooWeatherActivity</string>
 </resources>

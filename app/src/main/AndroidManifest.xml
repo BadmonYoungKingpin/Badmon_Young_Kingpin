@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hp.myapplication" >
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +15,6 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,9 +34,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".eventHomeActivity" />
         </activity>
-
-        <uses-permission android:name="android.permission.INTERNET" />
-
         <activity
             android:name=".todoHomeActivity"
             android:label="@string/title_activity_todo_home"
@@ -146,6 +145,34 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hp.myapplication.todoOtherHomeActivity" />
+        </activity>
+        <activity
+            android:name=".weatherHomeActivity"
+            android:label="@string/title_activity_weather_home"
+            android:parentActivityName=".todoHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.todoHomeActivity" />
+        </activity>
+
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+        <activity
+            android:name=".WeatherForecast"
+            android:label="@string/title_activity_weather_forecast"
+            android:parentActivityName=".weatherHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.weatherHomeActivity" />
+        </activity>
+        <activity
+            android:name=".yahooWeatherActivity"
+            android:label="@string/title_activity_yahoo_weather"
+            android:parentActivityName=".weatherHomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.myapplication.weatherHomeActivity" />
         </activity>
     </application>
 

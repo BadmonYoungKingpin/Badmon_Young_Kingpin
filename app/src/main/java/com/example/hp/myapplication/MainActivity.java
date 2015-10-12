@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void weatherButtonClick(View v) {
-
+        setContentView(R.layout.activity_weather_home);
+        Intent intent = new Intent(this, weatherHomeActivity.class);
+        startActivity(intent);
     }
 
     @Override

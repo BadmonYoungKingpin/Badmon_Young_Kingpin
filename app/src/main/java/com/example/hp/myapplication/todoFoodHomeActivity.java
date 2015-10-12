@@ -61,7 +61,7 @@ public class todoFoodHomeActivity extends ListActivity {
     private void readFromFile() {
         try {
             EXTRA_MESSAGE_TODO = new ArrayList<String>();
-            FileInputStream fis = openFileInput("FoodTester");
+            FileInputStream fis = openFileInput("FoodTester1");
 
             if ( fis != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(fis);

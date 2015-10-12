@@ -20,7 +20,7 @@ import java.util.Collections;
 
 public class todoWorkHomeActivity extends ListActivity {
 
-    private static String[] EVENT_DATA = new String[4];
+    private static String[] EVENT_DATA = new String[5];
     public static ArrayList<String> EXTRA_MESSAGE_TODO = new ArrayList<String>();
 
     @Override
@@ -59,7 +59,7 @@ public class todoWorkHomeActivity extends ListActivity {
     private void readFromFile() {
         try {
             EXTRA_MESSAGE_TODO = new ArrayList<String>();
-            FileInputStream fis = openFileInput("WorkTester");
+            FileInputStream fis = openFileInput("WorkTester1");
 
             if ( fis != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(fis);
@@ -92,7 +92,7 @@ public class todoWorkHomeActivity extends ListActivity {
 
     private void readTodoFile(String title){
         try {
-            for(int i=0;i<4;i++) {EVENT_DATA[i] = "";}
+            for(int i=0;i<5;i++) {EVENT_DATA[i] = "";}
 
             String newTitleString = title.substring(13);
             FileInputStream fis = openFileInput(newTitleString);
